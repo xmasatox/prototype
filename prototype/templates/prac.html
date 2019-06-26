@@ -1,0 +1,67 @@
+{% extends 'prac_base.html' %}
+
+{% block content %}
+  <h1>Please seach case report by follows.</h1>
+  <div class="container">
+    <div class="jumbotron">
+      {% if progress == 0 %}
+      <form method="POST">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="input">
+      </form>
+      {% endif %}
+      <p>progress:{{ progress }}</p>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="jumbotron">
+      {% if progress == 1 %}
+      <h1>INSPECTIONS</h1>
+      <form method="POST">
+        <h2>MMT-右肩</h2>
+        {{ mmt_shoulder_right_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="input"　name="mmt_shoulder_right_button">
+      </form>
+      {% endif %}
+    </div>
+    <div class="jumbotron">
+      {% if progress == 1 %}
+      <form method="POST">
+        <h2>MMT-左肩</h2>
+        {{ mmt_shoulder_left_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="input" name="mmt_shoulder_left_button">
+      </form>
+      {% endif %}
+      <p>progress:{{ progress }}</p>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="jumbotron">
+      {% if progress == 2 %}
+      <h1>ICF</h1>
+      <form method="POST">
+        {{ icf_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="input">
+      </form>
+      {% endif %}
+      <p>progress:{{ progress }}</p>
+    </div>
+  </div>
+  <!--
+  {% if icf_body %}
+    <h1>問題点の列挙</h1>
+    <h2>身体構造・心身機能</h2>
+    <p>{{ icf_body }}</p>
+    <h2>活動・参加</h2>
+    <p>{{ icf_activity }}</p>
+  {% endif %}
+  -->
+{% endblock %}
